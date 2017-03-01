@@ -50,6 +50,7 @@
   (require 'smartrep))
 (el-get-bundle switch-window
   (with-eval-after-load-feature 'switch-window
+    (custom-set-variables '(switch-window-threshold 3))
     (define-key global-map (kbd "C-x o") 'switch-window)))
 (el-get-bundle undo-tree
   (with-eval-after-load-feature 'undo-tree

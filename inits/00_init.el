@@ -65,6 +65,8 @@
 ;;   Key shortcuts:
 ;;     C-x ! -> Delete other windows
 (define-key global-map (kbd "C-x !") 'delete-other-windows)
+(define-key global-map (kbd "C-x p") 
+  (lambda() (interactive) (other-window -1)))
 
 ;;   File extensions:
 ;;     rst_: reStructuredText
