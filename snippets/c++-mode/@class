@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: @class
+# key: @class
+# --
+/**
+ * ${2:<describe-brief-here>}
+ */
+class ${1:MyClass} {
+public:
+  /**
+   * コンストラクタ
+   */
+  $1();
+  
+  /**
+   * デストラクタ
+   */
+  virtual ~$1();
+
+  $0  
+
+private:
+  // コピー不可
+  $1(const $1&);
+  $1& operator=(const $1&);
+};
+

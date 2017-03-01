@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: @file
+# key: @file
+# --
+/**
+ * @file `(file-name-nondirectory (buffer-file-name))`
+ * @brief $1
+ */
+

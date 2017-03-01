@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: @class
+# key: @class
+# --
+class ${1:MyClass}(${2:object}):
+    """
+    ${3:<describe-class-brief>}
+    """
+
+    def __init__(self):
+        """
+        ${4:Constructor}
+        """
+        super($1, self).__init__()
+        $0
+
