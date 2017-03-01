@@ -8,19 +8,19 @@
 class ${1:MyClass} {
 public:
   /**
-   * コンストラクタ
+   * Constructor.
    */
   $1();
   
   /**
-   * デストラクタ
+   * Destructor.
    */
   virtual ~$1();
 
   $0  
 
 private:
-  // コピー不可
+  // Uncopyable.
   $1(const $1&);
   $1& operator=(const $1&);
 };
