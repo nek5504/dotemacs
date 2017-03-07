@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: @googletest
+# key: @googletest
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+include (ExternalProject)
+ExternalProject_Add (
+  # Name
+  GoogleTest
+  # Repository
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG release-1.8.0
+  # Directories
+  BINARY_DIR $${{DEPEND_ROOT}}/build/googletest
+  SOURCE_DIR $${{DEPEND_ROOT}}/src/googletest
+  # Build command
+  CMAKE_GENERATOR "Unix Makefiles"
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=$${{DEPEND_ROOT}}
+  BUILD_COMMAND make INSTALL_COMMAND make install
+)
