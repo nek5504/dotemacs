@@ -6,13 +6,16 @@
               (lambda ()
                 (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                   (ggtags-mode 1))))
+    (defalias 'ggtags-navigation-mode 'ignore)
     ;; http://futurismo.biz/archives/3071
-    (setq ggtags-completing-read-function nil)
+    (custom-set-variables '(ggtags-completing-read-function nil))
     (define-key ggtags-mode-map (kbd "M-g M-c") 'ggtags-create-tags)
+    (define-key ggtags-mode-map (kbd "M-g M-d") 'ggtags-find-definition)
+    (define-key ggtags-mode-map (kbd "M-g M-e") 'ggtags-find-tag-regexp)
     (define-key ggtags-mode-map (kbd "M-g M-f") 'ggtags-find-file)
     (define-key ggtags-mode-map (kbd "M-g M-h") 'ggtags-view-tag-history)
     (define-key ggtags-mode-map (kbd "M-g M-r") 'ggtags-find-reference)
-    (define-key ggtags-mode-map (kbd "M-g M-s") 'ggtags-find-other-symbol)
+    (define-key ggtags-mode-map (kbd "M-g M-r") 'ggtags-find-tag-dwim)
     (define-key ggtags-mode-map (kbd "M-g M-u") 'ggtags-update-tags)))
 (el-get-bundle google-c-style
   (add-hook 'c-mode-common-hook
