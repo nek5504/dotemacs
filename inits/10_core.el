@@ -3,28 +3,14 @@
   (eval-after-load "auto-complete"
     '(diminish 'auto-complete-mode)))
 (el-get-bundle diminish
-  (eval-after-load "diminish"
-    '(diminish 'abbrev-mode)))
-(el-get-bundle goto-chg)
-(eval-after-load "smartrep"
-  '(smartrep-define-key global-map "M-g"
-                        '(("n" quote goto-last-change-reverse)
-                          ("p" quote goto-last-change))))
-(el-get-bundle helm 
-  (eval-after-load "helm"
-    '(diminish 'helm-mode))
-  ;; https://abicky.net/2015/11/23/223011/
-  (define-key global-map (kbd "C-c i") 'helm-imenu)
-  (define-key global-map (kbd "C-x b") 'helm-buffers-list)
-  (define-key global-map (kbd "C-x C-f") 'helm-find-files)
-  (define-key global-map (kbd "C-x C-r") 'helm-recentf)
-  (define-key global-map (kbd "M-x") 'helm-M-x)
-  (define-key global-map (kbd "M-y") 'helm-show-kill-ring)
-  (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-  (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
-  (setq helm-buffer-details-flag nil)
-  (add-hook 'after-init-hook 'helm-recentf))
-;; helm-ag: subx-r is unavailable on 24.3.
+  (require 'diminish)
+  (diminish 'abbrev-mode))
+(el-get-bundle goto-chg
+  (eval-after-load "goto-chg"
+    '(eval-after-load "smartrep"
+       '(smartrep-define-key global-map "M-g"
+          '(("n" quote goto-last-change-reverse)
+            ("p" quote goto-last-change))))))
 (el-get-bundle migemo
   (require 'migemo)
   (setq migemo-coding-system 'utf-8-unix)
@@ -43,8 +29,6 @@
     (require 'ace-jump-mode))
   (el-get-bundle avy
     (require 'avy))
-  (el-get-bundle helm-swoop
-    (require 'helm-swoop))
   (global-ace-isearch-mode 1))
 (el-get-bundle smartrep
   (require 'smartrep))
