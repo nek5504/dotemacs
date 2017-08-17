@@ -28,3 +28,4 @@
   (init-loader-load "~/.emacs.d/inits"))
 
 (put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
