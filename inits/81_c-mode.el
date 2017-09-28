@@ -8,15 +8,7 @@
                   (ggtags-mode 1))))
     (defalias 'ggtags-navigation-mode 'ignore)
     ;; http://futurismo.biz/archives/3071
-    (custom-set-variables '(ggtags-completing-read-function nil))
-    (define-key ggtags-mode-map (kbd "M-g M-c") 'ggtags-create-tags)
-    (define-key ggtags-mode-map (kbd "M-g M-d") 'ggtags-find-definition)
-    (define-key ggtags-mode-map (kbd "M-g M-e") 'ggtags-find-tag-regexp)
-    (define-key ggtags-mode-map (kbd "M-g M-f") 'ggtags-find-file)
-    (define-key ggtags-mode-map (kbd "M-g M-h") 'ggtags-view-tag-history)
-    (define-key ggtags-mode-map (kbd "M-g M-r") 'ggtags-find-reference)
-    (define-key ggtags-mode-map (kbd "M-g M-r") 'ggtags-find-tag-dwim)
-    (define-key ggtags-mode-map (kbd "M-g M-u") 'ggtags-update-tags)))
+    (custom-set-variables '(ggtags-completing-read-function nil))))
 (el-get-bundle google-c-style
   (add-hook 'c-mode-common-hook
             (lambda ()
@@ -34,12 +26,13 @@
               ;; Separate I/O buffer
               gdb-use-separate-io-buffer t)
              (cl-flet ((setup (mode)
+                              (define-key mode (kbd "C-x C-a C-b") 'gud-break)
                               (define-key mode (kbd "C-x C-a C-d") 'gud-down)
+                              (define-key mode (kbd "C-x C-a C-r") 'gud-remove)
+                              (define-key mode (kbd "C-x C-a C-s") 'gud-start)
+                              (define-key mode (kbd "C-x C-a C-t") 'gud-tbreak)
                               (define-key mode (kbd "C-x C-a C-u") 'gud-up)
-                              (define-key mode (kbd "C-x C-a d") 'gud-remove)
-                              (define-key mode (kbd "C-x C-a p") 'gud-print)
-                              (define-key mode (kbd "C-x C-a t") 'gud-tbreak)
-                              (define-key mode (kbd "C-x C-a w") 'gud-watch)
+                              (define-key mode (kbd "C-x C-a C-w") 'gud-watch)
                               (smartrep-define-key mode "C-x C-a"
                                 '(("c" . 'gud-cont)
                                   ("f" . 'gud-finish)
