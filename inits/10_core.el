@@ -55,6 +55,6 @@
   (define-key global-map (kbd "M-%") 'vr/query-replace))
 (el-get-bundle zoom-window
   (require 'zoom-window)
-  (define-key global-map (kbd "C-x 1") 'zoom-window-zoom)
+  (define-key global-map (kbd "C-x !") 'zoom-window-zoom)
   (setq zoom-window-mode-line-color "DarkGreen"))
 
