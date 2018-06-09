@@ -2,6 +2,9 @@
 ;; package-managers:
 ;;   http://tarao.hatenablog.com/entry/20150221/1424518030
 ;;
+
+(package-initialize)
+
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -12,11 +15,6 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
-
-;;
-;;   http://tarao.hatenablog.com/entry/20150221/1424518030#tips-byte-compilation
-;;
-(el-get-bundle tarao/with-eval-after-load-feature-el)
 
 ;;
 ;;   el-get packages
