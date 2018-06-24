@@ -1,16 +1,21 @@
-(el-get-bundle ag)
-(el-get-bundle auto-complete
-  (eval-after-load "auto-complete"
-    '(diminish 'auto-complete-mode)))
 (el-get-bundle diminish
   (require 'diminish)
   (diminish 'abbrev-mode))
+(el-get-bundle smartrep
+  (require 'smartrep))
+(el-get-bundle with-eval-after-load-feature)
+
+(el-get-bundle ag)
+(el-get-bundle auto-complete
+  (with-eval-after-load-feature 'auto-complete
+    (diminish 'auto-complete-mode)))
 (el-get-bundle goto-chg
-  (eval-after-load "goto-chg"
-    '(eval-after-load "smartrep"
-       '(smartrep-define-key global-map "M-g"
-          '(("n" quote goto-last-change-reverse)
-            ("p" quote goto-last-change))))))
+  (require 'goto-chg)
+  (smartrep-define-key global-map "M-g"
+    '(("N" . goto-last-change-reverse)
+      ("P" . goto-last-change)
+      ("n" . next-error)
+      ("p" . previous-error))))
 (el-get-bundle migemo
   (require 'migemo)
   (setq migemo-coding-system 'utf-8-unix)
@@ -22,30 +27,26 @@
   (load-library "migemo")
   (migemo-init)
   (el-get-bundle ace-isearch
-    (eval-after-load "ace-isearch"
-      '(diminish 'ace-isearch-mode))
-    (require 'ace-isearch))
+    (global-ace-isearch-mode 1)
+    (require 'ace-isearch)
+    (diminish 'ace-isearch-mode))
   (el-get-bundle ace-jump-mode
     (require 'ace-jump-mode))
   (el-get-bundle avy
-    (require 'avy))
-  (global-ace-isearch-mode 1))
-(el-get-bundle smartrep
-  (require 'smartrep))
+    (require 'avy)))
 (el-get-bundle switch-window
   (with-eval-after-load-feature 'switch-window
     (custom-set-variables '(switch-window-threshold 3))
     (define-key global-map (kbd "C-x o") 'switch-window)))
 (el-get-bundle undo-tree
   (with-eval-after-load-feature 'undo-tree
-    (diminish 'undo-tree-mode)
-    (global-undo-tree-mode)))
+    (global-undo-tree-mode)
+    (diminish 'undo-tree-mode)))
 (el-get-bundle yasnippet
-  (eval-after-load "yasnippet"
-    '(diminish 'yas-minor-mode))
   (require 'yasnippet)
+  (yas-global-mode 1)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  (yas-global-mode 1))
+  (diminish 'yas-minor-mode))
 (el-get-bundle yatemplate
   (require 'yatemplate)
   (yatemplate-fill-alist)
@@ -57,4 +58,3 @@
   (require 'zoom-window)
   (define-key global-map (kbd "C-x !") 'zoom-window-zoom)
   (setq zoom-window-mode-line-color "DarkGreen"))
-

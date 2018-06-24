@@ -21,4 +21,6 @@
   (with-eval-after-load-feature 'magit
     (magit-auto-revert-mode 1)
     (diminish 'magit-auto-revert-mode)))
-
+(el-get-bundle zk-phi/git-complete
+  (require 'git-complete)
+  (setq git-complete-enable-autopair t))

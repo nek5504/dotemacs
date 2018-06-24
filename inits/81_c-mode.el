@@ -1,4 +1,3 @@
-;; ggtags-mode
 (el-get-bundle ggtags
   (with-eval-after-load-feature 'ggtags
     ;; https://github.com/leoliu/ggtags#config
@@ -41,4 +40,3 @@
                                   ("u" . 'gud-until)))))
                (setup c-mode-map)
                (setup c++-mode-map))))
-

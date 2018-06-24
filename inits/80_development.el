@@ -1,3 +1,4 @@
+(el-get-bundle dumb-jump)
 (el-get-bundle flycheck
   (add-hook 'after-init-hook #'global-flycheck-mode)
   (add-hook 'c++-mode-hook
@@ -6,6 +7,7 @@
   ;; Javascript (*.js)
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 (el-get-bundle markdown-mode)
+(el-get-bundle neotree)
 (el-get-bundle quickrun)
 (el-get-bundle web-mode
   ;;; http://web-mode.org/
@@ -33,4 +35,3 @@
   ;; Jinja2 (*.j2)
   (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode)))
 (el-get-bundle yaml-mode)
-
