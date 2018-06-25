@@ -2,8 +2,6 @@
 ;; http://emacs.rubikitch.com/better-defaults/
 ;; better-defaults:
 ;;
-;;   Enable ido mode
-(ido-mode t)
 ;;   Disable menu bar and tool bar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)

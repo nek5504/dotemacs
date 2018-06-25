@@ -16,11 +16,12 @@
                      ("r" . 'git-gutter:revert-hunk)
                      ("u" . 'git-gutter:update-all-windows)))))
     (git-gutter:linum-setup)))
-;; Newer versions of magit require 24.4 or higher
-(el-get-bundle magit/git-modes :branch "1.0.0"
-  (el-get-bundle magit/magit :branch "1.4.2"
-    (with-eval-after-load-feature 'magit
-      (magit-auto-revert-mode 1)
-      (setq magit-last-seen-setup-instructions "1.4.0")
-      (diminish 'magit-auto-revert-mode))))
-
+(el-get-bundle magit/magit
+  (require 'magit)
+  (magit-auto-revert-mode 1)
+  (diminish 'magit-auto-revert-mode))
+(el-get-bundle magit/git-modes
+  (require 'git-modes))
+(el-get-bundle zk-phi/git-complete
+  (require 'git-complete)
+  (setq git-complete-enable-autopair t))
