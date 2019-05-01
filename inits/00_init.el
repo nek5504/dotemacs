@@ -1,3 +1,6 @@
+;; Theme
+(load-theme 'manoj-dark t)
+
 ;;
 ;; http://emacs.rubikitch.com/better-defaults/
 ;; better-defaults:
@@ -69,4 +72,3 @@
 ;;   File extensions:
 ;;     rst_: reStructuredText
 (add-to-list 'auto-mode-alist '("\\.rst_\\'" . rst-mode))
-

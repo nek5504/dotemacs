@@ -9,7 +9,12 @@
 (el-get-bundle auto-complete
   (eval-after-load "auto-complete"
     '(diminish 'auto-complete-mode)))
+(el-get-bundle undo-tree
+  (with-eval-after-load-feature 'undo-tree
+    (global-undo-tree-mode)
+    (diminish 'undo-tree-mode)))
 (el-get-bundle goto-chg
+  (require 'undo-tree)
   (require 'goto-chg)
   (smartrep-define-key global-map "M-g"
     '(("N" . goto-last-change-reverse)
@@ -38,10 +43,6 @@
   (with-eval-after-load-feature 'switch-window
     (custom-set-variables '(switch-window-threshold 3))
     (define-key global-map (kbd "C-x o") 'switch-window)))
-(el-get-bundle undo-tree
-  (with-eval-after-load-feature 'undo-tree
-    (global-undo-tree-mode)
-    (diminish 'undo-tree-mode)))
 (el-get-bundle yasnippet
   (eval-after-load "yasnippet"
     '(diminish 'yas-minor-mode))

@@ -1,7 +1,9 @@
-auto-save-list/
-backup/
-el-get/
-elpa/
+/auto-save-list/
+/backup/
+/el-get/
+/elpa/
+/transient/
+/ac-comphist.dat
+/recentf
 *~
 *.elc
-ac-comphist.dat

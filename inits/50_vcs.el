@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
+
 (el-get-bundle diffview
   (with-eval-after-load-feature 'diffview
     (defun diffview-close ()
@@ -16,10 +18,12 @@
                      ("r" . 'git-gutter:revert-hunk)
                      ("u" . 'git-gutter:update-all-windows)))))
     (git-gutter:linum-setup)))
-(el-get-bundle magit/magit
-  (require 'magit)
-  (magit-auto-revert-mode 1)
-  (diminish 'magit-auto-revert-mode))
+(el-get-bundle magit/ghub
+  (require 'ghub))
+(el-get-bundle magit/magit-popup
+  (require 'magit-popup))
+(el-get-bundle magit/magit :branch "2.13.1"
+  (require 'magit))
 (el-get-bundle magit/git-modes
   (require 'git-modes))
 (el-get-bundle zk-phi/git-complete
