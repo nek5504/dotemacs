@@ -1,5 +1,5 @@
-(el-get-bundle dumb-jump)
 (el-get-bundle flycheck
+  (require 'flycheck)
   (add-hook 'after-init-hook #'global-flycheck-mode)
   (add-hook 'c++-mode-hook
             (lambda () (setq flycheck-gcc-language-standard "c++11"))))

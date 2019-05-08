@@ -16,11 +16,16 @@
                      ("r" . 'git-gutter:revert-hunk)
                      ("u" . 'git-gutter:update-all-windows)))))
     (git-gutter:linum-setup)))
+
+; FIXME: Use 2.13.1 since 2.90 requires some git manupulation library (libgit).
+;; dependecies
 (el-get-bundle magit/git-modes)
-(el-get-bundle magit/magit
-  (with-eval-after-load-feature 'magit
-    (magit-auto-revert-mode 1)
-    (diminish 'magit-auto-revert-mode)))
+(el-get-bundle magit/magit-popup)
+;; FIXME: Add load-path by myself
+(add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
+(el-get-bundle magit/magit :branch "2.13.1"
+  (require 'magit))
+
 (el-get-bundle zk-phi/git-complete
   (require 'git-complete)
   (setq git-complete-enable-autopair t))

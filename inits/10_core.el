@@ -9,13 +9,7 @@
 (el-get-bundle auto-complete
   (with-eval-after-load-feature 'auto-complete
     (diminish 'auto-complete-mode)))
-(el-get-bundle goto-chg
-  (require 'goto-chg)
-  (smartrep-define-key global-map "M-g"
-    '(("N" . goto-last-change-reverse)
-      ("P" . goto-last-change)
-      ("n" . next-error)
-      ("p" . previous-error))))
+(el-get-bundle ghub)
 (el-get-bundle migemo
   (require 'migemo)
   (setq migemo-coding-system 'utf-8-unix)
@@ -58,3 +52,11 @@
   (require 'zoom-window)
   (define-key global-map (kbd "C-x !") 'zoom-window-zoom)
   (setq zoom-window-mode-line-color "DarkGreen"))
+
+(el-get-bundle goto-chg
+  (require 'goto-chg)
+  (smartrep-define-key global-map "M-g"
+    '(("N" . goto-last-change-reverse)
+      ("P" . goto-last-change)
+      ("n" . next-error)
+      ("p" . previous-error))))
