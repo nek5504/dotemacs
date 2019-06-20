@@ -1,3 +1,6 @@
+(el-get-bundle monokai-theme
+  (load-theme 'monokai t))
+
 (el-get-bundle diminish
   (require 'diminish)
   (diminish 'abbrev-mode))
