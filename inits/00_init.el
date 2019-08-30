@@ -69,3 +69,22 @@
 ;;   File extensions:
 ;;     rst_: reStructuredText
 (add-to-list 'auto-mode-alist '("\\.rst_\\'" . rst-mode))
+
+;;
+;; https://www.emacswiki.org/emacs/キーボードマクロ
+;; Toggle keyboard macro recording:
+;;
+(defun toggle-kbd-macro-recording-on ()
+  "One-key keyboard macros: turn recording on."
+  (interactive)
+  (global-set-key '[(shift f5)] 'toggle-kbd-macro-recording-off)
+  (start-kbd-macro nil))
+
+(defun toggle-kbd-macro-recording-off ()
+  "One-key keyboard macros: turn recording off."
+  (interactive)
+  (global-set-key '[(shift f5)] 'toggle-kbd-macro-recording-on)
+  (end-kbd-macro))
+
+(global-set-key '[(f5)] 'call-last-kbd-macro)
+(global-set-key '[(shift f5)] 'toggle-kbd-macro-recording-on)
